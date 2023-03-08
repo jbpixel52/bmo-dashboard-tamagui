@@ -52,7 +52,7 @@ function AppCard(props: appCardProps) {
       </Card.Header>
       <Card.Footer padded>
         <XStack f={1} />
-        <Button br="$10" onClick=()=>{} >Open</Button>
+        <Button br="$10">Open</Button>
       </Card.Footer>
       <Card.Background>
 
