@@ -2,17 +2,15 @@ import { Anchor, Button, CardProps, H1, Input, Paragraph, Separator, Sheet, XSta
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
 import React, { useState } from 'react'
 import { useLink } from 'solito/link'
-import { Card, H2 } from 'tamagui' // or @tamagui/card
+import { Card, H2, Image } from 'tamagui' // or @tamagui/card
 
 export function HomeScreen() {
-  const linkProps = useLink({
-    href: '/user/nate',
-  })
+
 
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>
       <YStack space="$4" maw={600}>
-        <H1 ta="center">Robots...🌍🍀</H1>
+        <H1 ta="center">BMO Dashboard 🤖</H1>
         <Paragraph ta="center">
           pee pee poo poo
         </Paragraph>
@@ -33,6 +31,23 @@ export function HomeScreen() {
           />
           <Card.Background />
         </Card>
+
+        <Card>
+          <Card.Header />
+          <Card.Footer />
+          <AppCard
+            animation="bouncy"
+            size="$4"
+            w={250}
+            h={300}
+            scale={0.9}
+            hoverStyle={{ scale: 0.925 }}
+            pressStyle={{ scale: 0.875 }}
+            _appname='dashboard'
+          />
+          <Card.Background />
+        </Card>
+
       </YStack>
 
     </YStack>
@@ -43,16 +58,21 @@ interface appCardProps {
   props: CardProps,
   _appname: string
 }
+
 function AppCard(props: appCardProps) {
   return (
     <Card theme="dark" elevate size="$4" bordered {...props}>
       <Card.Header padded>
         <H2>{props._appname}</H2>
-        <Paragraph theme="alt2">Click to Open</Paragraph>
       </Card.Header>
       <Card.Footer padded>
         <XStack f={1} />
-        <Button br="$10">Open</Button>
+        <YStack f={1}>
+
+        </YStack>
+        <Button br="$10">
+          <Anchor href={`https://${props._appname}.jbpixel.xyz`}>Open {props._appname}</Anchor>
+        </Button>
       </Card.Footer>
       <Card.Background>
 
